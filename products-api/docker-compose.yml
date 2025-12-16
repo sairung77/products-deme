@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: products-api-container
+    working_dir: /var/www/html
+    volumes:
+      - .:/var/www/html
+    networks:
+      - product-demo-network
+
+networks:
+  product-demo-network:
+    external: true

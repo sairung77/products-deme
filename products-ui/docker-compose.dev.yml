@@ -1,0 +1,19 @@
+services:
+  ui:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: products-ui-container
+    ports:
+      # Vite's default port is 5173
+      - "3010:5173"
+    volumes:
+      - .:/app
+      # Anonymous volume for node_modules to avoid overwriting
+      - /app/node_modules
+    networks:
+      - product-demo-network
+
+networks:
+  product-demo-network:
+    external: true

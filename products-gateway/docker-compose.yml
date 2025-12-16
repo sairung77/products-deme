@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  gateway:
+    image: nginx:stable-alpine
+    container_name: products-gateway-container
+    ports:
+      - "8010:80"
+    volumes:
+      # Mount the custom Nginx configuration
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+
+      # Mount the Laravel API source code so Nginx can access the PHP files in the /public folder
+      # This path must match the 'root' directive in nginx.conf for the api.products.local server block
+      - ../products-api:/var/www/html:ro
+
+    # This ensures that this gateway starts after the services it depends on.
+    # Docker Compose will wait for the other containers to be "healthy" or "started".
+    # Note: depends_on requires the services to be in the same docker-compose file
+    # or to be linked in a specific way. Since we are running them separately,
+    # this is more for documentation. The network itself allows communication.
+      
+    networks:
+      - product-demo-network
+
+networks:
+  product-demo-network:
+    external: true
+

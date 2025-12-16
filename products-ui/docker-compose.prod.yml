@@ -1,0 +1,16 @@
+services:
+  ui:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: products-ui-container
+    ports:
+      # Map host port 3010 to container port 5173 (which Nginx is now listing on)
+      - "3010:5173"
+    # No volumes for code, as we want the built artifacts inside the image
+    networks:
+      - product-demo-network
+
+networks:
+  product-demo-network:
+    external: true

@@ -1,0 +1,178 @@
+{
+	"info": {
+		"_postman_id": "8ab0c77a-1be5-49a5-825f-cfbf71d06dc5",
+		"name": "Product Demo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "392381"
+	},
+	"item": [
+		{
+			"name": "Get All Products",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://api.products.local:8010/api/products",
+					"protocol": "http",
+					"host": [
+						"api",
+						"products",
+						"local"
+					],
+					"port": "8010",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Product",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"New Product\",\n    \"price\": 99.99,\n    \"description\": \"This is a new product description.\"\n}"
+				},
+				"url": {
+					"raw": "http://api.products.local:8010/api/products",
+					"protocol": "http",
+					"host": [
+						"api",
+						"products",
+						"local"
+					],
+					"port": "8010",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Single Product",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://api.products.local:8010/api/products/1",
+					"protocol": "http",
+					"host": [
+						"api",
+						"products",
+						"local"
+					],
+					"port": "8010",
+					"path": [
+						"api",
+						"products",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Product",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Updated Product Name\",\n    \"price\": 149.50,\n    \"description\": \"Updated description content.\"\n}"
+				},
+				"url": {
+					"raw": "http://api.products.local:8010/api/products/1",
+					"protocol": "http",
+					"host": [
+						"api",
+						"products",
+						"local"
+					],
+					"port": "8010",
+					"path": [
+						"api",
+						"products",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Product",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://api.products.local:8010/api/products/1",
+					"protocol": "http",
+					"host": [
+						"api",
+						"products",
+						"local"
+					],
+					"port": "8010",
+					"path": [
+						"api",
+						"products",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://api.products.local:8010/api",
+			"type": "string"
+		}
+	]
+}
